@@ -30,7 +30,7 @@
 import headerComponent from '../../components/global/header.vue'
 import categoryComponent from '../../components/HomePage/Category.vue'
 import topProductComponent from '../../components/HomePage/topProduct.vue'
-import orderNowComponent from '../../components/HomePage/OrderNow..vue'
+import orderNowComponent from '../../components/HomePage/OrderNow.vue'
 import OurPortfolioComponent from '../../components/HomePage/OurPortfolio.vue'
 import AdsComponent from '../../components/ads/ads.vue'
 

@@ -1,5 +1,6 @@
 <template>
   <div class="orderNow-component">
+      <div class="overflow-ordernow"></div>
   <img src="../../assets/images/orderNow-bg.png" alt="orderNow-image">
     <div class="container">
     <div class="content">

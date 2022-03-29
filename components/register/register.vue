@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-md-6 m-0 p-0">
         <div class="img">
-          <img src="../../assets/images/login.png" alt="login image">
+          <img src="../../assets/images/orroWhite.png" alt="login image">
+          <h1 class="title mt-5">Hi, Welcome</h1>
         </div>
       </div>
       <div class="col-md-6 m-0 p-0">

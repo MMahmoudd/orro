@@ -14,8 +14,9 @@
                         </div>
                       </div>
                       </div>
-                      <div class="product-details d-flex justify-content-center">
-                        <p>{{ product.name_translate }}</p>
+                      <div class="product-details d-flex justify-content-between mt-1">
+                        <p class="product_title">{{ product.name_translate }}</p>
+                        <p class="product_price">{{product.price}} LE</p>
                       </div>
                     </div>
               </div>

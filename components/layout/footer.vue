@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="logo">
-              <img src="../../assets/images/OrroLogo.png" alt="logo">
+              <img src="../../assets/images/orroWhite.png" alt="logo" class="mb-3">
               <div>15567</div>
               <div class="social">
                 <a :href="links.facebook" target="_blank"><i class="fab fa-facebook-square"></i></a>

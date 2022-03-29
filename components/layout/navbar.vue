@@ -2,11 +2,11 @@
   <div class="navbar">
     <b-navbar toggleable="lg" type="dark">
     <b-navbar-brand :to="localePath('/')">
-      <img src="../../assets/images/OrroLogo.png" alt="logo">
+      <img src="../../assets/images/orroWhite.png" alt="logo">
     </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
+        <b-navbar-nav class="navigation_links">
           <b-nav-item>
             <nuxt-link :to="localePath('/')">{{$t('global.home')}}</nuxt-link>
           </b-nav-item>
