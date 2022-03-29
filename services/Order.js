@@ -5,7 +5,7 @@ const resource = `${API_URL}`
 
 export default {
     sendOrderData(data) {
-        return Service.post(`${resource}/orders?restaurant_id=2`, data, {
+        return Service.post(`${resource}/orders?restaurant_id=3`, data, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
@@ -19,7 +19,7 @@ export default {
             })
     },
     getOrders() {
-        return Service.get(`${resource}/orders?restaurant_id=2`, {
+        return Service.get(`${resource}/orders?restaurant_id=3`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
             },

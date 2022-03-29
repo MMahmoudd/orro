@@ -74,7 +74,7 @@ export default {
             })
     },
     getCouponData(coupon) {
-        return Service.get(`${resource}/discount?restaurant_id=2&code=${coupon}`, {
+        return Service.get(`${resource}/discount?restaurant_id=3&code=${coupon}`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
                 accept: 'application/json'
@@ -92,7 +92,7 @@ export default {
     getDeliveryFees(area_id) {
         return Service.get(`${resource}/delivery_fees`, {
             params : {
-                restaurant_id : 2,
+                restaurant_id : 3,
                 area_id
             },
             headers: {
