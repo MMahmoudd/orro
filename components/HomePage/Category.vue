@@ -10,7 +10,7 @@
                 cols="12"
                 md="3"
                 sm="4"
-                class="mb-3 d-inline-flex justify-content-center"
+                class="mb-3 d-inline-flex justify-content-cneter"
                 v-for="(item, i) in slide"
                 :key="i"
               >
@@ -67,12 +67,19 @@ export default {
    width:auto !important;
   }
 
+.category-component .carousel-control-next {
+  right:-25px !important;
+}
+.category-component .carousel-control-prev {
+  left:-25px !important;
+}
+
 .category-component .carousel-control-prev .carousel-control-prev-icon {
-background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23a3080b' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238A6E4B' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
 }
 
 .category-component .carousel-control-next .carousel-control-next-icon {
-background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23a3080b' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238A6E4B' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
 
 </style>
