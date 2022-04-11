@@ -93,9 +93,9 @@ export default {
       display: "standalone",
       start_url: "/?standalone=true",
     },
-    icon: {
-      source: "./static/logo.png",
-    },
+     icon: {
+            source: "./static/logoo.png",
+      },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
