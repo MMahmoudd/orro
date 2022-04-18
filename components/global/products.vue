@@ -23,9 +23,9 @@
                   </div>
                 </div>
               </div>
-              <div class="product-details d-flex justify-content-between mt-1">
+              <div class="product-details justify-content-center">
                 <p class="product_title">{{ product.name_translate }}</p>
-                <p class="product_price">{{ product.sizes[0].price }} LE</p>
+                <p class="product_price">{{ product.item }}</p>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
         <div class="content">
           <h4>{{ product.name_translate }}</h4>
           <p v-html="product.description_translate"></p>
-          <p>{{ $t("sizes") }}:</p>
+          <!-- <p>{{ $t("sizes") }}:</p> -->
           <div class="row">
             <div class="col-md-3" v-for="size in product.sizes" :key="size.id">
               <b-form-group v-slot="{ ariaDescribedby }">
@@ -68,7 +68,6 @@
                     >{{ " " + size.price }} L.E</span
                   ></b-form-radio
                 >
-                <!-- //////////////////// -->
               </b-form-group>
             </div>
           </div>
@@ -205,9 +204,9 @@ export default {
       }
     },
     showProductDetails(productItem) {
-      // console.log("test", productItem);
       this.showDetails = true;
       this.product = productItem;
+      this.selecetdSize = productItem.sizes[0];
     },
     close() {
       this.selecetdSize.quantity = 1;

@@ -16,7 +16,9 @@
     "gallery": "Gallery",
     "news": "News",
     "information": "Information",
-    "noData": "No data for now"
+    "noData": "No data for now",
+    "event": "event",
+    "status": "status"
   },
 
   "home": {
