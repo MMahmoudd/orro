@@ -48,31 +48,35 @@ p {
 // Start Default Layout
 // Start Navbar
 .navbar {
-    width: 100%;
+    width: 103%;
     margin: auto;
     height: 55px;
-    top: 25px;
+    top: 0px;
     z-index: 1000;
-    position: absolute;
+    padding: inherit;
     nav {
-        width: 70%;
+        width: inherit;
         margin: auto;
         position: relative;
-        border-radius: 35px;
+        background-color: #8a6e4b;
+
         // background-color: rgba(255, 255, 255, 0.6);
         .navbar-brand {
-            width: 60px;
-            margin: 7px;
-            img {
-                width: 80px;
-            }
-        }
+          width: 60px;
+          margin: 14%;
+          margin-left: 42px;
+
+          img {
+            width: 100%;
+          }
+          }
         .navbar-nav {
             justify-content: space-around;
             width: 60%;
+                        padding-left: revert;
         }
         .navigation_links {
-            .nav-item a{ 
+            .nav-item a{
                 color: #fff !important;
             }
             .nuxt-link-exact-active.nuxt-link-active {
@@ -80,7 +84,7 @@ p {
             }
         }
         .ml-auto {
-            padding-right: 20px;
+            padding-right: 5%;
             justify-content: unset !important;
             width: unset !important;
             .nav-link {
@@ -263,7 +267,7 @@ p {
             position: relative;
             transition: all .4s ease-in-out;
             img {
-                width: 100%;
+                width: auto;
                 height: -webkit-fill-available;
             }
         }
@@ -603,7 +607,7 @@ p {
             color: $secondColor;
             margin-bottom: 25px;
         }
-        
+
         .btn {
             background-color: rgba(255, 255, 255, 0.507);
             color: $mainColor;
@@ -1219,3 +1223,20 @@ p {
 }
 
 // End gallery-page-component
+//start foodclub
+#over {
+  bottom: 2.5rem;
+  right: 0.6rem;
+  position: fixed;
+  width: 7%;
+  overflow: auto;
+  border-radius: 50%;
+}
+
+//end food club
+.card {
+  background-color: #8A6E4B;
+  display: inline-block;
+  border-radius: 1.25rem;
+      margin-top: -6%;
+}

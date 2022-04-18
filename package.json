@@ -9,6 +9,7 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
+        "vue2-google-maps": "^0.10.7",
         "@nuxtjs/pwa": "^3.3.5",
         "axios": "^0.24.0",
         "bootstrap": "^4.6.0",

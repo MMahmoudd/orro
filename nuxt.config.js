@@ -43,9 +43,10 @@ export default {
   //     middleware: 'i18n'
   // },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  // plugins: [
-  //     { src: '~/plugins/i18n.js' },
-  // ],
+  plugins: [
+      // { src: '~/plugins/i18n.js' },
+     { src: '~/plugins/map', ssr: false }
+  ],
   // i18n : {
   //     skipSettingLocaleOnNavigate: true,
   // },
@@ -57,6 +58,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+
     [
       "nuxt-i18n",
       {
@@ -93,9 +95,9 @@ export default {
       display: "standalone",
       start_url: "/?standalone=true",
     },
-    icon: {
-      source: "./static/logo.png",
-    },
+     icon: {
+            source: "./static/logoo.png",
+      },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

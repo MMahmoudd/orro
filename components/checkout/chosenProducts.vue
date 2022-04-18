@@ -13,10 +13,10 @@
                     :aria-describedby="ariaDescribedby"
                     name="some-radios"
                     :value="i"
-                    >
-                    {{ i.governrate.name_translate }} - {{i.area.name_translate}}
-                  </b-form-radio
                   >
+                    {{ i.governrate.name_translate }} -
+                    {{ i.area.name_translate }}
+                  </b-form-radio>
                 </b-form-group>
               </div>
             </div>
@@ -35,13 +35,11 @@
             $t("checkout.addNewAddress")
           }}</b-button>
         </div>
-
       </div>
       <!-- products -->
 
       <div class="container products">
         <div class="row">
-
           <div class="cart-item" v-for="item in Products" :key="item.id">
             <div class="cart-image">
               <img :src="item.cartable.image" alt="product-image" />
@@ -65,23 +63,27 @@
             </b-button>
           </div>
 
-          <div  class="couponContainer">
-          <!-- coupon -->
-          <coupon
-            @input="
-              (value) => {
-                this.coupon = value.coupon;
-                this.discount_amount = value.discount_amount;
-                this.discount_type = value.discount_type;
-              }
-            "
-          />
+          <div class="couponContainer">
+            <!-- coupon -->
+            <coupon
+              @input="
+                (value) => {
+                  this.coupon = value.coupon;
+                  this.discount_amount = value.discount_amount;
+                  this.discount_type = value.discount_type;
+                }
+              "
+            />
 
-
-          <div class="delivery-time--container"> {{$t('checkout.deliveryTime')}}: {{deliveryTime || 0}} {{$t('checkout.min')}} </div>
+            <div class="delivery-time--container">
+              {{ $t("checkout.deliveryTime") }}: {{ deliveryTime || 0 }}
+              {{ $t("checkout.min") }}
+            </div>
           </div>
 
-          <div class="tatal-details d-flex justify-content-between align-items-start">
+          <div
+            class="tatal-details d-flex justify-content-between align-items-start"
+          >
             <div class="back">
               <nuxt-link :to="localePath('/')"
                 ><i class="fas fa-arrow-left"></i>
@@ -94,24 +96,39 @@
 
             <!-- pricese -->
             <div class="total">
-
               <discount-text
                 :amount="discount_amount"
                 :type="discount_type"
                 :total="total"
               />
 
-                <delivery-price :price="deliveryPrice" />
+              <delivery-price :price="deliveryPrice" />
+              <p class="font-weight-bold mr-3" v-if="tax > 0">
+                <span class="header-section">{{ $t("checkout.tax") }} :</span>
+                {{ tax }} %
+              </p>
+              <p class="font-weight-bold mr-3" v-if="service > 0">
+                <span class="header-section">
+                  {{ $t("checkout.service") }} :</span
+                >
+                {{ service }} %
+              </p>
 
-                <p class="font-weight-bold mr-3">
-                  <span class="header-section"
-                    >{{ $t("checkout.subtotal") }}:</span
-                  >
-                  {{ finalTotal - finalDiscount }}
-                  L.E
-                </p>
+              <p class="font-weight-bold mr-3">
+                <span class="header-section"
+                  >{{ $t("checkout.subtotal") }}:</span
+                >
+                {{
+                  (
+                    finalTotal -
+                    finalDiscount +
+                    ((finalTotal - finalDiscount) * service) / 100 +
+                    ((finalTotal - finalDiscount) * tax) / 100
+                  ).toFixed(1)
+                }}
+                L.E
+              </p>
             </div>
-
           </div>
 
           <div class="shop">
@@ -119,7 +136,6 @@
               {{ $t("checkout.checkout") }}
             </b-button>
           </div>
-
         </div>
       </div>
     </div>
@@ -218,12 +234,13 @@
 import { ServiceFactory } from "../../services/ServiceFactory";
 
 import coupon from "./coupon.vue";
-import DeliveryPrice from './deliveryPrice.vue';
+import DeliveryPrice from "./deliveryPrice.vue";
 import discountText from "./discount.vue";
 
 const Service = ServiceFactory.get("Cart");
 const profileService = ServiceFactory.get("profile");
 const ordersService = ServiceFactory.get("orders");
+const commonService = ServiceFactory.get("common");
 
 export default {
   components: { coupon, discountText, DeliveryPrice },
@@ -249,9 +266,10 @@ export default {
     product: {},
 
     payment_type: "cash",
-
+    service: 0,
+    tax: 0,
     deliveryPrice: 0,
-    deliveryTime: '',
+    deliveryTime: "",
     // discount data
     discount_type: "",
     coupon: "",
@@ -259,6 +277,7 @@ export default {
   }),
   created() {
     this.getCart();
+    this.getSettings();
   },
   computed: {
     total() {
@@ -267,32 +286,30 @@ export default {
     finalDiscount() {
       if (this.discount_amount) {
         if (this.discount_type === "percentage") {
-            return this.total - (this.total * (this.discount_amount / 100))
+          return this.total * (this.discount_amount / 100);
         } else if (this.discount_type === "fixed") {
-            return this.discount_amount
+          return this.discount_amount;
         }
       }
 
-      return 0
+      return 0;
     },
 
     finalTotal() {
-      return (
-          this.total + (this.deliveryPrice || 0)
-        )
+      return this.total + (this.deliveryPrice || 0);
     },
   },
-  watch : {
-    selectedAddress : {
-      handler (newValue, oldValue) {
+  watch: {
+    selectedAddress: {
+      handler(newValue, oldValue) {
         if (oldValue.area_id !== newValue.area_id) {
-          if(newValue.area_id) {
-            this.getFees(newValue.area_id)
+          if (newValue.area_id) {
+            this.getFees(newValue.area_id);
           }
         }
       },
-      deep : true,
-    }
+      deep: true,
+    },
   },
   methods: {
     async addNewAddress() {
@@ -338,15 +355,14 @@ export default {
     },
     async getAddress() {
       try {
-        const {data} = await profileService.getUserAddress();
+        const { data } = await profileService.getUserAddress();
         this.UserData = data;
-      }catch(error) {
+      } catch (error) {
         this.ErrorMessage = error.message;
       }
-
     },
     async createOrder() {
-      if (this.selectedAddress) {
+      if (this.selectedAddress.id) {
         const data = {
           address_id: this.selectedAddress.id,
           payment_type: this.payment_type,
@@ -406,32 +422,44 @@ export default {
     },
     async getFees(areaId) {
       try {
-        const {data} = await Service.getDeliveryFees(areaId)
+        const { data } = await Service.getDeliveryFees(areaId);
 
-        if(data.status === true) {
-          this.deliveryPrice = data.fees[0].price
-          this.deliveryTime = data.fees[0].delivery_time
+        if (data.status === true) {
+          this.deliveryPrice = data.fees[0].price;
+          this.deliveryTime = data.fees[0].delivery_time;
         }
 
-        if(data.status !== true) {
-          throw new Error(data.message)
+        if (data.status !== true) {
+          throw new Error(data.message);
         }
-      }catch(err) {
-        this.ErrorMessage = err.message
+      } catch (err) {
+        this.ErrorMessage = err.message;
       }
       // console.log('fees >> ',data)
-    }
+    },
+    async getSettings() {
+      try {
+        const response = await commonService.getSettings();
+        console.log("response setting", response.data.settings);
+        this.tax = response.data.settings.tax;
+        this.service = response.data.settings.service;
+
+        if (response !== true) {
+          throw new Error("Error");
+        }
+      } catch (error) {
+        console.log({ error });
+      }
+    },
   },
 };
 </script>
 
-
 <style scoped>
 .couponContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .delivery-time--container {
