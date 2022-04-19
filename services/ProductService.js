@@ -38,8 +38,7 @@ export default {
                 }
             })
     },
-  getAllTopItems() {
-    debugger;
+    getAllTopItems() {
         return Service.get(`${resource}/topItems?restaurant_id=3`)
             .then((response) => {
                 if (response.status === 200) {
