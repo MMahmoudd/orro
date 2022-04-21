@@ -42,9 +42,10 @@ export const mutations = {
             if (item.id === productData.id) {
                 item.quantity = productData.quantity
                 item.total_price = item.quantity * item.price
+                console.log('item.selectedAddons', item.selectedAddons)
                 if (item.selectedAddons) {
-                    const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
-                    item.totalPriceWithAddons = item.quantity * (item.price + priceOfAllAddons)
+                    // const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
+                    item.totalPriceWithAddons = item.quantity * (item.price + item.selectedAddons.price)
                 } else {
                     item.totalPriceWithAddons = item.quantity * item.price
                 }
@@ -72,8 +73,8 @@ export const mutations = {
                 item.quantity += 1
                 item.total_price = item.quantity * item.price
                 if (item.selectedAddons) {
-                    const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
-                    item.totalPriceWithAddons = item.quantity * (item.price + priceOfAllAddons)
+                    // const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
+                    item.totalPriceWithAddons = item.quantity * (item.price + item.selectedAddons.price)
                 } else {
                     item.totalPriceWithAddons = item.quantity * item.price
                 }
@@ -98,8 +99,8 @@ export const mutations = {
                 hasProducts.quantity -= 1
                 hasProducts.total_price = hasProducts.quantity * hasProducts.price
                 if (hasProducts.selectedAddons) {
-                    const priceOfAllAddons = hasProducts.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
-                    hasProducts.totalPriceWithAddons = hasProducts.quantity * (hasProducts.price + priceOfAllAddons)
+                    // const priceOfAllAddons = hasProducts.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
+                    hasProducts.totalPriceWithAddons = hasProducts.quantity * (hasProducts.price + hasProducts.selectedAddons.price)
                 } else {
                     hasProducts.totalPriceWithAddons = hasProducts.quantity * hasProducts.price
                 }

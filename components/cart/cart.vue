@@ -93,10 +93,10 @@
               <h4>{{product.item_name}}</h4>
               <p>{{$t('cart.sizeSelcted')}}: {{product.name}}</p>
               <div v-if="product.selectedAddons">
-              <div class="row border" v-for="(addon) in product.selectedAddons" :key="addon.id">
-                <p class="col-md-6">{{$t('cart.addOnName')}}: <span class="price">{{addon.name_translate}}</span> </p>
-                <p class="col-md-6">{{$t('cart.addOnPrice')}}: <span class="price">{{addon.price}}</span></p>
-              </div>
+              <!-- <div class="row border" v-for="(addon) in product.selectedAddons" :key="addon.id"> -->
+                <p class="col-md-6">{{$t('cart.addOnName')}}: <span class="price">{{product.selectedAddons.name_translate}}</span> </p>
+                <p class="col-md-6">{{$t('cart.addOnPrice')}}: <span class="price">{{product.selectedAddons.price}}</span></p>
+              <!-- </div> -->
               </div>
             </div>
           </div>
@@ -119,6 +119,7 @@ export default {
   }),
   computed: {
     products() {
+      console.log('this.$store.state.products', this.$store.state.products)
       return this.$store.state.products;
     },
     total() {

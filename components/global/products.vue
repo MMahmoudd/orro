@@ -104,17 +104,17 @@
           </b-form-group> -->
 
           <b-form-group v-slot="{ ariaDescribedby }">
-            <b-form-checkbox-group
+            <b-form-radio-group
               id="checkbox-group-2"
               v-model="selecetdSize.selectedAddons"
               :aria-describedby="ariaDescribedby"
               name="flavour-2"
             >
-              <b-form-checkbox :value="addon">
+              <b-form-radio :value="addon">
                 {{ addon.name_translate }}
                 <span class="price"> {{ "  " + addon.price }}L.E</span>
-              </b-form-checkbox>
-            </b-form-checkbox-group>
+              </b-form-radio>
+            </b-form-radio-group>
           </b-form-group>
         </div>
       </div>
