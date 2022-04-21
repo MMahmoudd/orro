@@ -15,11 +15,7 @@
               $t("global.menu")
             }}</nuxt-link>
           </b-nav-item>
-          <b-nav-item>
-            <nuxt-link :to="localePath('/contactUs')">{{
-              $t("global.contactUs")
-            }}</nuxt-link>
-          </b-nav-item>
+
           <b-nav-item>
             <nuxt-link :to="localePath('/branches')">{{
               $t("global.branches")
@@ -38,6 +34,11 @@
           <b-nav-item>
             <nuxt-link :to="localePath('/event')">{{
               $t("global.event")
+            }}</nuxt-link>
+          </b-nav-item>
+          <b-nav-item>
+            <nuxt-link :to="localePath('/partener')">{{
+              $t("global.partener")
             }}</nuxt-link>
           </b-nav-item>
           <b-nav-item>

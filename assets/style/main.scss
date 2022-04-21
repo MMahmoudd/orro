@@ -58,14 +58,14 @@ p {
         width: inherit;
         margin: auto;
         position: relative;
-        background-color: #8a6e4b;
+        background-color: #000;
         // background-color: rgba(255, 255, 255, 0.6);
         .navbar-brand {
             width: 60px;
             margin: 14%;
             margin-left: 42px;
             img {
-                width: 100%;
+                width: 145%;
             }
         }
         .navbar-nav {
@@ -78,7 +78,7 @@ p {
                 color: #fff !important;
             }
             .nuxt-link-exact-active.nuxt-link-active {
-                color: $mainColor !important;
+                color: #939597 !important;
             }
         }
         .ml-auto {
@@ -492,6 +492,7 @@ p {
             height: 100%;
             .carousel-item {
                 height: 100%;
+
                 img {
                     height: 100%;
                     width: auto;
@@ -1069,7 +1070,7 @@ p {
             margin: 5px;
             padding: 15px;
             height: 100px;
-            background-color: #D9B3B4;
+            background-color: #aaaaaa;
             .custom-control-input:checked~.custom-control-label::before {
                 border-color: $mainColor;
                 background-color: $mainColor;

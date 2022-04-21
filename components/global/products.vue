@@ -65,7 +65,7 @@
                 >
                   {{ size.name }}
                   <span class="price"
-                    >{{ " " + size.price }} L.E</span
+                    >({{ " " + size.price }}L.E)</span
                   ></b-form-radio
                 >
               </b-form-group>
@@ -89,6 +89,20 @@
       <hr />
       <div class="row" v-if="product.addson">
         <div class="col-md-3" v-for="addon in product.addson" :key="addon.id">
+          <!-- <b-form-group v-slot="{ ariaDescribedby }">
+            <b-form-radio-group
+              v-model="selecetdSize.selectedAddons"
+              :aria-describedby="ariaDescribedby"
+              name="flavour-2"
+              :value="size"
+            >
+              <b-form-radio :value="addon" name="flavour-3">
+                {{ addon.name_translate }}
+                <span class="price"> {{ "  " + addon.price }}L.E</span>
+              </b-form-radio>
+            </b-form-radio-group>
+          </b-form-group> -->
+
           <b-form-group v-slot="{ ariaDescribedby }">
             <b-form-checkbox-group
               id="checkbox-group-2"
