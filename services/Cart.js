@@ -5,7 +5,7 @@ const resource = `${API_URL}`
 
 export default {
     sendCartData(data) {
-        return Service.post(`${resource}/cart`, data, {
+        return Service.post(`${resource}/cart?restaurant_id=3`, data, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
@@ -19,30 +19,30 @@ export default {
             })
     },
     getCart() {
-        return Service.get(`${resource}/cart`, {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('token'),
-            },
-        })
-        .then((response) => {
-            // console.log('response cart', response)
-            if (response.status === 200) {
-                if (response.data.data) {
-                    response.data.data.forEach(item => {
-                        if (item.addons) {
-                            item.addons.forEach(addon => {
-                                item.total_price = item.total_price + addon.total_price
-                            })
-                        }
-                    })
-                }
+        return Service.get(`${resource}/cart?restaurant_id=3`, {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            })
+            .then((response) => {
+                // console.log('response cart', response)
+                if (response.status === 200) {
+                    if (response.data.data) {
+                        response.data.data.forEach(item => {
+                            if (item.addons) {
+                                item.addons.forEach(addon => {
+                                    item.total_price = item.total_price + addon.total_price
+                                })
+                            }
+                        })
+                    }
 
-                return response.data
-            }
-        })
+                    return response.data
+                }
+            })
     },
     resetCart() {
-        return Service.post(`${resource}/empty_cart`, {
+        return Service.post(`${resource}/empty_cart?restaurant_id=3`, {
                 _method: 'DELETE'
             }, {
                 headers: {
@@ -91,8 +91,8 @@ export default {
     },
     getDeliveryFees(area_id) {
         return Service.get(`${resource}/delivery_fees`, {
-            params : {
-                restaurant_id : 3,
+            params: {
+                restaurant_id: 3,
                 area_id
             },
             headers: {
