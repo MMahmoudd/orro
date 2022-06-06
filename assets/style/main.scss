@@ -50,7 +50,7 @@ p {
 .navbar {
     width: 103%;
     margin: auto;
-    height: 55px;
+    height: 90px;
     top: 0px;
     z-index: 1000;
     padding: inherit;
@@ -65,7 +65,7 @@ p {
             margin: 14%;
             margin-left: 42px;
             img {
-                width: 145%;
+                width: 180%;
             }
         }
         .navbar-nav {
@@ -140,7 +140,7 @@ p {
     background-image: url("../../assets/images/footer-img.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 350px;
+    height: 100%;
     color: $secondColor;
     padding: 35px 0;
     text-align: center;
@@ -173,6 +173,7 @@ p {
     }
     h4 {
         color: #c5b05b;
+        // color: #495057;
         padding-bottom: 15px;
     }
     a {
@@ -262,7 +263,7 @@ p {
             position: relative;
             transition: all .4s ease-in-out;
             img {
-                width: 247px;
+                width: 100%;
                 height: -webkit-fill-available;
             }
         }
@@ -363,6 +364,7 @@ p {
 .modal-dialog {
     .modal-content {
         border: none;
+        border-radius: 12px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
@@ -809,7 +811,7 @@ p {
         .cart-details {
             width: 100%;
             margin: 0 25px;
-            line-height: 70px;
+            line-height: 30px;
             justify-content: space-between;
             .main-color {
                 color: $mainColor;
@@ -1228,6 +1230,15 @@ p {
     right: 0.6rem;
     position: fixed;
     width: 7%;
+    overflow: auto;
+    border-radius: 50%;
+}
+
+#over1 {
+    bottom: 8.5rem;
+    right: 0.9rem;
+    position: fixed;
+    width: 4%;
     overflow: auto;
     border-radius: 50%;
 }

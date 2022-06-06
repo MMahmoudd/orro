@@ -44,11 +44,11 @@
             <div class="cart-image">
               <img :src="item.cartable.image" alt="product-image" />
             </div>
-            <div class="cart-details row">
+            <div class="cart-details row d-flex align-content-center flex-wrap">
               <p class="font-weight-bold text-left col-sm-3">
                 {{ item.cartable.name_translate }}
               </p>
-              <p class="font-weight-bold text-left main-color col-sm-2">
+              <p class="font-weight-bold text-left main-color col-sm-2" v-if="item.cartable.price">
                 {{ item.cartable.price }} LE
               </p>
               <div class="quantity text-left col-sm-3">

@@ -20,6 +20,24 @@ export default {
     },
     getCart() {
         return Service.get(`${resource}/cart?restaurant_id=3`, {
+<<<<<<< HEAD
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+        })
+        .then((response) => {
+            // console.log('response cart', response)
+            if (response.status === 200) {
+                if (response.data.data) {
+                    response.data.data.forEach(item => {
+                        if (item.addons) {
+                            item.addons.forEach(addon => {
+                                item.total_price = item.total_price + addon.total_price
+                            })
+                        }
+                    })
+                }
+=======
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
@@ -36,6 +54,7 @@ export default {
                             }
                         })
                     }
+>>>>>>> 8bea0d4608b161fbaa388183ea4768bdad32a0f5
 
                     return response.data
                 }

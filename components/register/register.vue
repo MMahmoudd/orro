@@ -38,6 +38,22 @@
                   :placeholder="$t('register.phonePlaceholder')"
                   required
                 ></b-form-input>
+
+              </b-form-group>
+              <b-form-group
+                id="input-group-4"
+                label-for="input-4"
+                :label="$t('register.birthdate')"
+                class="text-left"
+              >
+                <b-form-input
+                  id="input-4"
+                  v-model="form.birthdate"
+                  type="date"
+                  :placeholder="$t('register.Y-m-d')"
+                  required
+                ></b-form-input>
+
               </b-form-group>
               <b-form-group
                 id="input-group-1"
@@ -104,6 +120,7 @@ const RegisterService = ServiceFactory.get('Register')
           phone: '',
           email: '',
           password: '',
+          birthdate:'',
         },
         registerErrorMessage: '',
         registerSuccessMessage: '',
@@ -133,7 +150,7 @@ const RegisterService = ServiceFactory.get('Register')
             }, 1500)
           }
         } else {
-          this.registerErrorMessage = register.email || register.phone || register.name || register.password
+          this.registerErrorMessage = register.email || register.phone || register.name || register.password || register.birthdate
         }
     },
     }

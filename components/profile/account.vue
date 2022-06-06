@@ -21,6 +21,12 @@
       <div class="col-md-10">
          {{UserData.phone}}
       </div>
+      <div class="col-md-2 title">
+        {{$t('profile.birthdate')}}
+      </div>
+      <div class="col-md-10">
+         {{UserData.birthdate}}
+      </div>
       <div style="width: 100%" class="text-center m-auto">
         <b-button class="text-center m-auto" @click="openEdit()">{{$t('profile.editProfile')}}</b-button>
         <b-button @click="logout()" class="btn m-auto">{{$t('profile.logout')}}</b-button>
@@ -71,6 +77,15 @@
                   v-model="UserData.phone"
                   type="text"
                   :placeholder="$t('profile.phonePlaceholder')"
+                  required
+                ></b-form-input>
+              </b-form-group>
+              <b-form-group id="input-group-2" label-for="input-2">
+                <b-form-input
+                  id="input-2"
+                  v-model="UserData.birthdate"
+                  type="date"
+                  :placeholder="$t('profile.birthdate')"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -144,6 +159,7 @@ export default {
           phone: this.UserData.phone,
           email: this.UserData.email,
           name: this.UserData.name,
+          birthdate: this.UserData.birthdate,
           _method: 'PUT'
         }
         const Data = await Service.editUserData(userData)
