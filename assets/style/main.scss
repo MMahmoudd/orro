@@ -18,9 +18,9 @@ body {
 }
 
 * {
-    box-sizing: border-box !important;
     -webkit-box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
 }
 
 h1,
@@ -172,7 +172,7 @@ p {
         }
     }
     h4 {
-        color: $mainColor;
+        color: #c5b05b;
         padding-bottom: 15px;
     }
     a {
@@ -252,9 +252,9 @@ p {
             width: 55px;
             // text-align: right;
         }
-        .product_title {
-            // text-align: left;
-        }
+        // .product_title {
+        //     // text-align: left;
+        // }
         .product-image {
             width: 100%;
             height: 250px;
@@ -289,11 +289,11 @@ p {
                     color: $mainColor;
                     line-height: 35px;
                     border: 1px solid $mainColor;
-                    border-radius: 50%;
                     -webkit-border-radius: 50%;
                     -moz-border-radius: 50%;
                     -ms-border-radius: 50%;
                     -o-border-radius: 50%;
+                    border-radius: 50%;
                     height: 35px;
                     width: 35px;
                     cursor: pointer;
@@ -323,11 +323,11 @@ p {
                         height: unset;
                         width: unset;
                         border: unset;
-                        border-radius: unset;
                         -webkit-border-radius: unset;
                         -moz-border-radius: unset;
                         -ms-border-radius: unset;
                         -o-border-radius: unset;
+                        border-radius: unset;
                         line-height: unset;
                         font-size: unset;
                         transition: all .4s ease-in-out;
@@ -341,11 +341,11 @@ p {
         z-index: 100;
         top: 10px;
         left: 50%;
-        transform: translate(-50%, 10px);
         -webkit-transform: translate(-50%, 10px);
         -moz-transform: translate(-50%, 10px);
         -ms-transform: translate(-50%, 10px);
         -o-transform: translate(-50%, 10px);
+        transform: translate(-50%, 10px);
         .alert {
             background-color: $mainColor;
             color: #fff;
@@ -363,11 +363,11 @@ p {
 .modal-dialog {
     .modal-content {
         border: none;
-        border-radius: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+        border-radius: 10px;
     }
     .modal-header {
         border-bottom: none;
@@ -413,11 +413,11 @@ p {
                         width: 30px;
                         height: 30px;
                         cursor: pointer;
-                        border-radius: 50%;
                         -webkit-border-radius: 50%;
                         -moz-border-radius: 50%;
                         -ms-border-radius: 50%;
                         -o-border-radius: 50%;
+                        border-radius: 50%;
                     }
                 }
             }
@@ -429,11 +429,11 @@ p {
     }
     .border {
         border: 1px solid $mainColor !important;
-        border-radius: 5px;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
+        border-radius: 5px;
         margin: 5px;
     }
     .custom-control-input:not(:disabled):active~.custom-control-label::before,
@@ -463,11 +463,11 @@ p {
                 height: unset;
                 width: unset;
                 border: unset;
-                border-radius: unset;
                 -webkit-border-radius: unset;
                 -moz-border-radius: unset;
                 -ms-border-radius: unset;
                 -o-border-radius: unset;
+                border-radius: unset;
                 line-height: unset;
                 font-size: unset;
                 transition: all .4s ease-in-out;
@@ -492,7 +492,6 @@ p {
             height: 100%;
             .carousel-item {
                 height: 100%;
-
                 img {
                     height: 100%;
                     width: auto;
@@ -535,11 +534,11 @@ p {
             /* Handle */
             &::-webkit-scrollbar-thumb {
                 background: $mainColor;
-                border-radius: 5px;
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
                 -ms-border-radius: 5px;
                 -o-border-radius: 5px;
+                border-radius: 5px;
             }
         }
     }
@@ -551,6 +550,10 @@ p {
         .category-name {
             width: 100%;
             height: 100%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
             border-radius: 50%;
             background-color: #8A6E4B91;
             position: absolute;
@@ -611,11 +614,11 @@ p {
             font-size: 22px;
             font-weight: bold;
             padding: 10px 30px;
-            border-radius: 35px;
             -webkit-border-radius: 35px;
             -moz-border-radius: 35px;
             -ms-border-radius: 35px;
             -o-border-radius: 35px;
+            border-radius: 35px;
         }
     }
 }
@@ -715,11 +718,11 @@ p {
                 text-align: center;
                 color: $secondColor;
                 background-color: $mainColor;
-                border-radius: 50%;
                 -webkit-border-radius: 50%;
                 -moz-border-radius: 50%;
                 -ms-border-radius: 50%;
                 -o-border-radius: 50%;
+                border-radius: 50%;
                 margin: 0 10px;
             }
         }
