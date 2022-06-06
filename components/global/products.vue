@@ -2,17 +2,20 @@
   <div class="products-component">
     <div class="container">
       <div class="pt-3" v-for="item in productsTest" :key="item.id">
-        <h4 v-if="item.products.length > 0" class="header-section">
+        <h4 v-if="item.products.length > 0" class="header-section p-3">
+          <img :src="item.categoryImage" width="50px" />
+
           {{ item.categoryName }}
         </h4>
+
         <div class="row">
           <div
             class="menue-items col-md-3"
             v-for="product in item.products"
-            :key="product.id"
+            :key="product"
           >
             <div class="product-item" @click="showProductDetails(product)">
-              <div class="product-image">
+              <!-- <div class="product-image">
                 <img :src="product.image" alt="product-image" />
                 <div class="overlay">
                   <div class="addToCart d-flex justify-content-center">
@@ -22,9 +25,9 @@
                     ></i>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="product-details justify-content-center">
-                <p class="product_title">{{ product.name_translate }}</p>
+                <p class="product_title p-3">{{ product.name_translate }}</p>
                 <p class="product_price">{{ product.item }}</p>
               </div>
             </div>
@@ -47,9 +50,9 @@
       </b-button>
 
       <div class="d-flex">
-        <div class="img">
+        <!-- <div class="img">
           <img :src="product.image" alt="product.image" />
-        </div>
+        </div> -->
         <div class="content">
           <h4>{{ product.name_translate }}</h4>
           <p v-html="product.description_translate"></p>
@@ -63,11 +66,10 @@
                   name="some-radios"
                   :value="size"
                 >
-                  {{ size.name }}
-                  <span class="price"
-                    >({{ " " + size.price }}L.E)</span
-                  ></b-form-radio
-                >
+                  <span v-if="$i18n.locale == 'en'"> {{ size.name }}</span>
+                  <span v-if="$i18n.locale == 'ar'"> {{ size.name_ar }}</span>
+                  <span class="price">( {{ " " + size.price }} L.E )</span>
+                </b-form-radio>
               </b-form-group>
             </div>
           </div>
@@ -104,21 +106,36 @@
           </b-form-group> -->
 
           <b-form-group v-slot="{ ariaDescribedby }">
-            <b-form-radio-group
+            <b-form-checkbox-group
               id="checkbox-group-2"
               v-model="selecetdSize.selectedAddons"
               :aria-describedby="ariaDescribedby"
               name="flavour-2"
             >
-              <b-form-radio :value="addon">
+              <b-form-checkbox :value="addon">
                 {{ addon.name_translate }}
-                <span class="price"> {{ "  " + addon.price }}L.E</span>
-              </b-form-radio>
-            </b-form-radio-group>
+                <span class="price"> ( {{ "  " + addon.price }}L.E )</span>
+              </b-form-checkbox>
+            </b-form-checkbox-group>
           </b-form-group>
         </div>
       </div>
-      <div v-if="selecetdSize.id" class="row actions">
+
+      <div class="row">
+        <div class="col-12">
+          <b-form-textarea
+            id="textarea-rows"
+            :placeholder="$t('global.addComment')"
+            v-model="selecetdSize.comment"
+            rows="3"
+            class="my-3"
+          />
+        </div>
+      </div>
+      <div
+        v-if="selecetdSize.id || selecetdSize.price == 0"
+        class="row actions"
+      >
         <b-button class="btn" @click="increase()"
           ><i class="fas fa-shopping-cart"></i>
           {{ $t("global.addToCart") }}
@@ -155,6 +172,7 @@ export default {
     categories: [],
     finalProducts: [],
     selectedAddons: [],
+     comment: '',
     dismissSecs: 5,
     dismissCountDown: 0,
     selecetdSize: {
@@ -172,16 +190,26 @@ export default {
             }
           });
           if (test.length > 0) {
-            all.push({ categoryName: category.name_translate, products: test });
+            all.push({
+              categoryName: category.name_translate,
+              categoryImage: category.image,
+              products: test,
+            });
           }
+          this.allProducts.sort(function (a, b) {
+            return a.name_translate.localeCompare(b.name_translate);
+          });
+          this.categories.sort((a, b) =>
+            a.name_translate.localeCompare(b.name_translate)
+          );
         });
         this.finalProducts = all;
       }
       return this.finalProducts;
     },
-    productsState() {
-      return this.$store.state.products;
-    },
+    // productsState() {
+    //   return this.$store.state.products;
+    // },
   },
   created() {
     this.fetchAllCategories();
@@ -191,11 +219,12 @@ export default {
       this.dataLoading = true;
       const items = await CategoryService.getAllCategories();
       this.categories = items.categories;
+
       this.dataLoading = false;
     },
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
-    },
+    // countDownChanged(dismissCountDown) {
+    //   this.dismissCountDown = dismissCountDown;
+    // },
     increaseSelecetdSize(selecetdSize) {
       // console.log(this.selecetdSize)
       selecetdSize.quantity += 1;
@@ -210,6 +239,7 @@ export default {
       this.dismissCountDown = this.dismissSecs;
       this.selecetdSize = {
         selectedAddons: [],
+         comment: ''
       };
     },
     decrease() {
@@ -220,12 +250,25 @@ export default {
     showProductDetails(productItem) {
       this.showDetails = true;
       this.product = productItem;
-      this.selecetdSize = productItem.sizes[0];
     },
     close() {
       this.selecetdSize.quantity = 1;
       this.showDetails = false;
     },
+    //
+    // async fetchAllItems() {
+    //   this.dataLoading = true;
+    //   const items = await CategoryService.getAllCategories();
+    //   this.data = this.chunk(items.categories, 4);
+    //   // console.log(this.data)
+    //   this.dataLoading = false;
+    // },
+
+    // chunk(array, n) {
+    //   return Array.from(Array(Math.ceil(array.length / n)), (_, i) =>
+    //     array.slice(i * n, i * n + n)
+    //   );
+    // },
   },
 };
 </script>

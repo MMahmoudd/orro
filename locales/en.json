@@ -1,6 +1,6 @@
 {
   "global": {
-    "visitLink": "visit link",
+    "visitLink": "Visit Link",
     "itemAdded": "Item Added To Your Cart",
     "goToCart": "Go To Your Cart",
     "goToHome": "Go To Home Page",
@@ -8,7 +8,7 @@
     "home": "Home",
     "menu": "Menu",
     "pages": "Pages",
-    "contactUs": "Contact US",
+    "contactUs": "Contact Us",
     "branches": "Branches",
     "ourBranches": "Our Branches",
     "myAccount": "My Account",
@@ -19,7 +19,9 @@
     "noData": "No data for now",
     "event": "Events",
     "status": "Status",
-    "partener": "Became a partner"
+    "addComment": "add Comment ",
+    "partener": "Become a Partner",
+    "GoToMap": "Go To Map"
   },
 
   "home": {
@@ -40,6 +42,8 @@
   },
 
   "register": {
+    "Y-m-d":"YY-MM-DD",
+    "birthdate":"Birthdate",
     "register": "Register",
     "createNew": "Create a new Account",
     "nameLabel": "Name",
@@ -59,7 +63,7 @@
   },
 
   "search": {
-    "results": "research results",
+    "results": "Research Results",
     "noResults": "No Results"
   },
 
@@ -76,14 +80,14 @@
 
   "branches": {
     "branches": "Branches",
-    "workdays": "workdays",
-    "timesofWork": "Times of Work",
+    "workdays": "Workdays",
+    "timesofWork": "Working Time",
     "noBranchesYet": "No Branches Yet"
   },
 
   "cart": {
     "myCart": "My Cart",
-    "backToShop": "back to shop",
+    "backToShop": "Back to Shop",
     "subtotal": "Subtotal",
     "continue": "Continue",
     "noItemsInCart": "No Items In Cart",
@@ -93,21 +97,26 @@
   },
 
   "checkout": {
-    "checkout": "checkout",
-    "tax": "tax",
-    "service": "service ",
+    "Thankyou":"Thank you",
+     "PaymentReceived":"Payment Received",
+    "checkout": "Checkout",
+    "total":"Total",
+    "payment":"payment",
+    "date":"Date",
+    "tax": "Tax",
+    "service": "Service ",
     "chooseNewLocation": "Choose New Location",
     "deleteAllCartData": "Delete All Cart Data",
     "subtotal": "Subtotal",
     "delivery": "Delivery",
     "addNewAddress": "Add New Address",
     "noOrdersYet": "No Orders Yet",
-    "backToProducts": "back to Add your Products",
-    "selectGovernrate": "select governrate",
-    "selectArea": "select area",
-    "steetAddress": "street address",
+    "backToProducts": "Back to Add your Products",
+    "selectGovernrate": "Select Governrate",
+    "selectArea": "Select area",
+    "steetAddress": "Street Address",
     "phone": "phone",
-    "createAddress": "Create address",
+    "createAddress": "Create Address",
 
     "couponPlaceholder": "Enter Coupon",
     "submitCoupon": "Apply Coupon",
@@ -119,6 +128,7 @@
   },
 
   "profile": {
+    "birthdate":"Birthdate",
     "hello": "Hello",
     "name": "Name",
     "email": "E-mail",
@@ -132,7 +142,7 @@
 
     "emailDescription": "We'll never share your email with anyone else.",
 
-    "emailPlaceholder": "Enter email",
+    "emailPlaceholder": "Enter Email",
 
     "orderDetails": "Order Details",
     "addressCastoumer": "Address Castoumer",

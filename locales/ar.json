@@ -18,7 +18,9 @@
     "information": "معلومات",
     "noData": "لا يوجد بيانات الان",
     "event": "المناسبات",
-    "partener": "كن شريك "
+    "partener": "كن شريك ",
+    "addComment": "اضافة تعليق",
+    "GoToMap": "اذهب إلى الخريطة"
   },
 
   "home": {
@@ -39,6 +41,7 @@
   },
 
   "register": {
+    "birthdate":"تاريخ الميلاد",
     "register": "التسجيل",
     "createNew": "إنشاء حساب جديد",
 
@@ -97,12 +100,17 @@
   },
 
   "checkout": {
+    "payment":"الدفع",
+    "date":"التاريخ",
+    "Thankyou":"شكرا لك",
+    "PaymentReceived":"تلقى الدفع ",
     "tax": "الضريبه المضافه",
     "service": "الخدمات ",
     "checkout": "الدفع",
     "chooseNewLocation": "اختار عنوان جديد",
     "deleteAllCartData": "احذف جميع عناصر السلة",
     "subtotal": "المجموع",
+    "total":"الاجمالي",
     "delivery": "التوصيل",
     "addNewAddress": "إضافة عنوان جديد",
     "noOrdersYet": "لا توجد طلبات بعد",
@@ -121,6 +129,7 @@
   },
 
   "profile": {
+    "birthdate":"Birthdate",
     "hello": "مرحبا",
     "name": "الإسم",
     "email": "البريد الإلكتروني",

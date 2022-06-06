@@ -1,8 +1,8 @@
 <template>
   <div class="category-component">
     <div class="container">
-      <h2 class="header-section">{{$t('home.category')}}</h2>
-      <b-carousel controls >
+      <h2 class="header-section">{{ $t("home.category") }}</h2>
+      <b-carousel controls>
         <b-carousel-slide v-for="(slide, sIndex) in data" :key="sIndex">
           <template v-slot:img>
             <b-row align-v="center" align-h="center">
@@ -14,7 +14,10 @@
                 v-for="(item, i) in slide"
                 :key="i"
               >
-                <nuxt-link :to="{path: '/menu' , query : {'category' : item.id}}" class="category-item mt-2">
+                <nuxt-link
+                  :to="{ path: '/menu', query: { category: item.id } }"
+                  class="category-item mt-2"
+                >
                   <div class="category-image">
                     <img :src="item.image" alt="category-image" />
                     <!-- <img src="../../assets/images/Component 3 – 1.png" alt="category-image"> -->
@@ -62,24 +65,22 @@ export default {
 
 <style>
 .category-component .carousel-control-next,
- .category-component .carousel-control-prev
- {
-   width:auto !important;
-  }
+.category-component .carousel-control-prev {
+  width: auto !important;
+}
 
 .category-component .carousel-control-next {
-  right:-25px !important;
+  right: -25px !important;
 }
 .category-component .carousel-control-prev {
-  left:-25px !important;
+  left: -25px !important;
 }
 
 .category-component .carousel-control-prev .carousel-control-prev-icon {
-background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238A6E4B' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238A6E4B' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
 }
 
 .category-component .carousel-control-next .carousel-control-next-icon {
-background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238A6E4B' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%238A6E4B' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
-
 </style>
