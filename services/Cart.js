@@ -1,122 +1,109 @@
-import Service from './Service'
-import { API_URL } from '../config'
+import Service from "./Service";
+import { API_URL } from "../config";
 
-const resource = `${API_URL}`
+const resource = `${API_URL}`;
 
 export default {
     sendCartData(data) {
         return Service.post(`${resource}/cart?restaurant_id=3`, data, {
                 headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                },
-            }).then((response) => {
-                if (response.status === 200) {
-                    return response
-                }
-            })
-            .catch(error => {
-                return error.response.data.errors || error.response.data.message
-            })
-    },
-    getCart() {
-        return Service.get(`${resource}/cart?restaurant_id=3`, {
-<<<<<<< HEAD
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('token'),
-            },
-        })
-        .then((response) => {
-            // console.log('response cart', response)
-            if (response.status === 200) {
-                if (response.data.data) {
-                    response.data.data.forEach(item => {
-                        if (item.addons) {
-                            item.addons.forEach(addon => {
-                                item.total_price = item.total_price + addon.total_price
-                            })
-                        }
-                    })
-                }
-=======
-                headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                    Authorization: "Bearer " + localStorage.getItem("token"),
                 },
             })
             .then((response) => {
-                // console.log('response cart', response)
                 if (response.status === 200) {
-                    if (response.data.data) {
-                        response.data.data.forEach(item => {
-                            if (item.addons) {
-                                item.addons.forEach(addon => {
-                                    item.total_price = item.total_price + addon.total_price
-                                })
-                            }
-                        })
-                    }
->>>>>>> 8bea0d4608b161fbaa388183ea4768bdad32a0f5
-
-                    return response.data
+                    return response;
                 }
             })
+            .catch((error) => {
+                return error.response.data.errors || error.response.data.message;
+            });
+    },
+    getCart() {
+        return Service.get(`${resource}/cart?restaurant_id=3`, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+        }).then((response) => {
+            if (response.status === 200) {
+                if (response.data.data) {
+                    response.data.data.forEach((item) => {
+                        if (item.addons) {
+                            item.addons.forEach((addon) => {
+                                item.total_price = item.total_price + addon.total_price;
+                            });
+                        }
+                    });
+                }
+                return response.data;
+            }
+        });
     },
     resetCart() {
-        return Service.post(`${resource}/empty_cart?restaurant_id=3`, {
-                _method: 'DELETE'
-            }, {
-                headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                },
-            }).then((response) => {
+        return Service.post(
+                `${resource}/empty_cart?restaurant_id=3`, {
+                    _method: "DELETE",
+                }, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("token"),
+                    },
+                }
+            )
+            .then((response) => {
                 if (response.status === 200) {
-                    return response
+                    return response;
                 }
             })
-            .catch(error => {
-                return error.response.data.errors || error.response.data.message
-            })
+            .catch((error) => {
+                return error.response.data.errors || error.response.data.message;
+            });
     },
     deleteProductFromCart(id) {
-        return Service.post(`${resource}/cart/${id}`, {
-                _method: 'DELETE'
-            }, {
-                headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                },
-            }).then((response) => {
+        return Service.post(
+                `${resource}/cart/${id}`, {
+                    _method: "DELETE",
+                }, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("token"),
+                    },
+                }
+            )
+            .then((response) => {
                 if (response.status === 200) {
-                    return response
+                    return response;
                 }
             })
-            .catch(error => {
-                return error.response.data.errors || error.response.data.message
-            })
+            .catch((error) => {
+                return error.response.data.errors || error.response.data.message;
+            });
     },
     getCouponData(coupon) {
         return Service.get(`${resource}/discount?restaurant_id=3&code=${coupon}`, {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('token'),
-                accept: 'application/json'
-            },
-        }).then(response => {
-            if (response.status === 200) {
-                return response.data
-            } else {
-                return response.message
-            }
-        }).catch(error => {
-            return error.response.data.errors || error.response.data.message
-        })
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                    accept: "application/json",
+                },
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.data;
+                } else {
+                    return response.message;
+                }
+            })
+            .catch((error) => {
+                return error.response.data.errors || error.response.data.message;
+            });
     },
     getDeliveryFees(area_id) {
         return Service.get(`${resource}/delivery_fees`, {
             params: {
                 restaurant_id: 3,
-                area_id
+                area_id,
             },
             headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('token'),
+                Authorization: "Bearer " + localStorage.getItem("token"),
             },
-        })
-    }
-}
+        });
+    },
+};

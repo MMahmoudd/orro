@@ -15,7 +15,7 @@
             :key="product"
           >
             <div class="product-item" @click="showProductDetails(product)">
-              <!-- <div class="product-image">
+              <div class="product-image">
                 <img :src="product.image" alt="product-image" />
                 <div class="overlay">
                   <div class="addToCart d-flex justify-content-center">
@@ -25,7 +25,7 @@
                     ></i>
                   </div>
                 </div>
-              </div> -->
+              </div>
               <div class="product-details justify-content-center">
                 <p class="product_title p-3">{{ product.name_translate }}</p>
                 <p class="product_price">{{ product.item }}</p>
@@ -50,9 +50,9 @@
       </b-button>
 
       <div class="d-flex">
-        <!-- <div class="img">
+        <div class="img">
           <img :src="product.image" alt="product.image" />
-        </div> -->
+        </div>
         <div class="content">
           <h4>{{ product.name_translate }}</h4>
           <p v-html="product.description_translate"></p>
@@ -172,7 +172,7 @@ export default {
     categories: [],
     finalProducts: [],
     selectedAddons: [],
-     comment: '',
+    comment: "",
     dismissSecs: 5,
     dismissCountDown: 0,
     selecetdSize: {
@@ -239,7 +239,7 @@ export default {
       this.dismissCountDown = this.dismissSecs;
       this.selecetdSize = {
         selectedAddons: [],
-         comment: ''
+        comment: "",
       };
     },
     decrease() {
