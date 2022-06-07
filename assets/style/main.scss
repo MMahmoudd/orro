@@ -4,8 +4,6 @@
 @import './fonts';
 // Global style
 body {
-    direction: ltr;
-    text-align: left;
     font-family: 'gobold_thin_lightregular';
     font-weight: normal;
     background-color: $secondColor !important;
@@ -43,6 +41,8 @@ p {
 
 .wrapper {
     top: 0;
+    direction: ltr;
+    text-align: left;
 }
 
 // Start Default Layout
@@ -134,7 +134,7 @@ p {
 
 // End Navbar
 // Start Footer
-#footer {
+#footer-Component {
     position: relative;
     width: 100%;
     background-image: url("../../assets/images/footer-img.png");

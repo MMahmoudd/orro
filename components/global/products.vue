@@ -12,7 +12,7 @@
           <div
             class="menue-items col-md-3"
             v-for="product in item.products"
-            :key="product"
+            :key="product.id"
           >
             <div class="product-item" @click="showProductDetails(product)">
               <div class="product-image">
@@ -222,9 +222,9 @@ export default {
 
       this.dataLoading = false;
     },
-    // countDownChanged(dismissCountDown) {
-    //   this.dismissCountDown = dismissCountDown;
-    // },
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
     increaseSelecetdSize(selecetdSize) {
       // console.log(this.selecetdSize)
       selecetdSize.quantity += 1;
@@ -248,6 +248,7 @@ export default {
       }
     },
     showProductDetails(productItem) {
+      console.log("productItem", productItem);
       this.showDetails = true;
       this.product = productItem;
     },

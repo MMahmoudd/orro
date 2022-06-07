@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div :class="this.$i18n.locale === 'ar' ? 'wrapper-ar' : 'wrapper'">
     <navbarComponent />
     <div class="pages">
       <Nuxt />
