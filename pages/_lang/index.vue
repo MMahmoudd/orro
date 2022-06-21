@@ -43,5 +43,11 @@ export default {
     OurPortfolioComponent,
     AdsComponent
   },
+  created() {
+    // console.log()
+    // if(this.$route.name === 'index___en') {
+    //   this.$router.push(this.localePath("/profile"));
+    // }
+  }
 }
 </script>

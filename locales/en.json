@@ -38,7 +38,9 @@
         "login": "Login",
         "emailDescription": "We'll never share your email with anyone else.",
         "emailPlaceholder": "Enter email",
-        "passwordPlaceholder": "Enter Password"
+        "passwordPlaceholder": "Enter Password",
+        "continueWith": "Continue With",
+        "or": "OR"
     },
 
     "register": {

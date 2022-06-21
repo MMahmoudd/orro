@@ -952,6 +952,14 @@ p {
                 -ms-border-radius: 50px;
                 -o-border-radius: 50px;
             }
+            .social {
+                padding-top: 15px;
+                i {
+                    margin: 0 10px;
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+            }
             .register {
                 padding-top: 15px;
                 a {

@@ -36,6 +36,13 @@
               ></b-form-input>
             </b-form-group>
             <b-button type="submit">{{ $t("login.login") }}</b-button>
+            <socialAuth />
+            <p class="social">
+              {{ $t("login.continueWith")}}
+              <i @click="completeAuth(facebook)" class="fab fa-facebook"></i>
+              {{ $t("login.or") }}
+              <i @click="completeAuth(google)" class="fab fa-google"></i>
+            </p>
             <div class="register">
               <nuxt-link :to="localePath(`/register`)">
                 {{ $t("register.createNew") }}</nuxt-link
@@ -59,12 +66,30 @@
         </div>
       </div>
     </div>
+        <!-- <b-modal v-model="showDetails" size="l" centered title="BootstrapVue">
+      <template #modal-header>
+        <div></div>
+      </template>
+      <b-button
+        class="close"
+        size="sm"
+        variant="outline-danger"
+        @click="close()"
+      >
+        <i class="fas fa-times"></i>
+      </b-button>
+
+    </b-modal> -->
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
+import socialAuth from "../global/socialAuth.vue";
 export default {
+  components: {
+    socialAuth,
+  },
   data() {
     return {
       form: {
@@ -74,6 +99,7 @@ export default {
       show: true,
       dismissSecs: 5,
       dismissCountDown: 0,
+      showDetails: false,
     };
   },
   computed: {

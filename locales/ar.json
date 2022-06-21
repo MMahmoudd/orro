@@ -37,7 +37,9 @@
         "login": "تسجيل دخول",
         "emailDescription": "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
         "emailPlaceholder": "ادخل بريدك",
-        "passwordPlaceholder": "ادخل كلمة المرور"
+        "passwordPlaceholder": "ادخل كلمة المرور",
+        "continueWith": "تابع مع",
+        "or": "أو"
     },
 
     "register": {

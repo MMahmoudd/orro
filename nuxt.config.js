@@ -1,4 +1,7 @@
 import i18n from "./config/i18n";
+// import path from 'path'
+// import fs from 'fs'
+
 
 export default {
     target: "static",
@@ -55,6 +58,12 @@ export default {
     // },
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
+    // server: {
+    //     https: {
+    //         key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+    //         cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
+    //     }
+    // },
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [

@@ -3,8 +3,9 @@
     <div class="container">
       <div class="pt-3" v-for="item in productsTest" :key="item.id">
         <h4 v-if="item.products.length > 0" class="header-section p-3">
-          <img :src="item.categoryImage" width="50px" />
-
+          <img :src="item.categoryImage" width="100px" />
+            <br>
+            <br>
           {{ item.categoryName }}
         </h4>
 
@@ -16,7 +17,7 @@
           >
             <div class="product-item" @click="showProductDetails(product)">
               <div class="product-image">
-                <img :src="product.image" alt="product-image" />
+                <!-- <img :src="product.image" alt="product-image" /> -->
                 <div class="overlay">
                   <div class="addToCart d-flex justify-content-center">
                     <i
@@ -50,9 +51,9 @@
       </b-button>
 
       <div class="d-flex">
-        <div class="img">
+        <!-- <div class="img">
           <img :src="product.image" alt="product.image" />
-        </div>
+        </div> -->
         <div class="content">
           <h4>{{ product.name_translate }}</h4>
           <p v-html="product.description_translate"></p>
